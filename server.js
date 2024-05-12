@@ -24,7 +24,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// const data = require("./Movie Data/data.json");
+const data = require("./Movie Data/data.json");
 
 
 //routes    
@@ -52,8 +52,7 @@ app.get("*" , handleNotFound);
 //functions
 
 function homeHandler(req,res){
-    let dataMovie = [];
-    newMovie = new Movie(data.title,data.poster_path,data.overview)
+   const newMovie = new Movie(data.title,data.poster_path,data.overview)
     
     res.json(newMovie)
 }
