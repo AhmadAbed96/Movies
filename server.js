@@ -7,13 +7,13 @@ const userName = process.env.PG_User;
 const password = process.env.PG_Password;
 const host = process.env.PG_Host;
 const port = process.env.PG_Port;
+const apiKey = process.env.API_KEY
 
 const url = `postgressql://${userName}:${password}@${host}:${port}/${database}`
 const {Client} = require("pg");
-const client = new Client(url);
+const client = new pg.Client(url);
 
 require('dotenv').config()
-const apiKey = process.env.API_KEY
 const express = require ("express");
 const app = express();
 const bodyParser = require('body-parser');
