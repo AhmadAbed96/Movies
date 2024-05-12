@@ -2,8 +2,13 @@
 "use strict"
 
 const Port = 3000;
+const database = process.env.PG_Database;
+const userName = process.env.PG_User;
+const password = process.env.PG_Password;
+const host = process.env.PG_Host;
+const port = process.env.PG_Port;
 
-const url = 'postgressql://localhost:5432/movies'
+const url = `postgressql://${userName}:${password}@${host}:${port}/${database}`
 const {Client} = require("pg");
 const client = new Client(url);
 
