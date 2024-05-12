@@ -1,5 +1,6 @@
 // import axios from 'axios';
 "use strict"
+require('dotenv').config()
 
 const Port = 3000;
 const database = process.env.PG_Database;
@@ -9,11 +10,10 @@ const host = process.env.PG_Host;
 const port = process.env.PG_Port;
 const apiKey = process.env.API_KEY
 
-const url = `postgressql://${userName}:${password}@${host}:${port}/${database}`
+const url = `postgres://${userName}:${password}@${host}:${port}/${database}`
 const {Client} = require("pg");
-const client = new pg.Client(url);
+const client = new Client(url);
 
-require('dotenv').config()
 const express = require ("express");
 const app = express();
 const bodyParser = require('body-parser');
